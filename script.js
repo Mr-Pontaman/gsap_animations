@@ -17,13 +17,17 @@ timeline
   .to(".boxes2", { duration: 1, x: 200 })
   .to(".boxes3", { duration: 1, x: 300 });
 
-function onMove(mouseX) {
-  let value = mouseX;
-  display(value);
-}
-
 gsap.fromTo(
   ".box4",
   { opacity: 0.1, scale: 0 },
   { opacity: 1, duration: 2, scale: 1.1, color: "red" }
 );
+
+gsap.set(".posts li", { y: 30, opacity: 0.4 });
+gsap.to(".posts li", {
+  duration: 1,
+  y: 0,
+  opacity: 1,
+  stagger: 0.2, // アイテムごとの遅延
+  ease: "power2.out" // イージングの設定
+});
